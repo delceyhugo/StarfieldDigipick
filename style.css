@@ -1,0 +1,16 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body{
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    place-items: center;
+    background-size: 30%;
+}
+#canvas{
+    border-radius: 50%;
+    background-image: radial-gradient(farthest-corner at 200px 150px, #19202b, #09090B 50%);
+}
