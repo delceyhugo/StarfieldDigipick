@@ -90,9 +90,10 @@ class Select{
             this.keyhole[index[0]].active = true
             this.keyhole[index[1]].active = true
             this.level.isSolved(this)
-        }else{
-            console.log('No')
         }
+        // else{
+        //     console.log('No')
+        // }
     }
     changeFocus(to, t){
         this.focus == to ? null : (this.focus = Math.floor((1-t)*this.focus+t*to), requestAnimationFrame(this.changeFocus.bind(this, to, t)))
