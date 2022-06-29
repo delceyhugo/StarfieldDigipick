@@ -11,6 +11,8 @@ body{
     background-size: 30%;
 }
 #canvas{
+    width: 500px;
+    height: 500px;
     border-radius: 50%;
     background-image: radial-gradient(farthest-corner at 200px 150px, #19202b, #09090B 50%);
 }

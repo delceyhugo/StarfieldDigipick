@@ -15,19 +15,20 @@ class Select{
     }
     initialized(){
         this.setRandomPosition()
-        setTimeout(() => this.changeFocus(220, 0.2), 300)
-        setTimeout(() => this.changeSelectOpacity(1, 0.2), 300)
-        setTimeout(() => this.changeKeyOpacity(1, 0.3), 800)
-        // setTimeout(code, delay)
-        // setTimeout(code, delay)
+        setTimeout(() => this.changeFocus(220, 0.2), 1300)
+        setTimeout(() => this.lerp('selectOpacity', 1, 0.2), 1300)
+        setTimeout(() => this.lerp('keyOpacity', 1, 0.3), 1800)
     }
     drawSelect(){
-        this.levels[0].active = true
+        this.levels.length > 0 ? this.levels[0].active = true : null
         this.ctx.beginPath()
         this.ctx.arc(this.width/2, this.height/2, this.focus, 0, 2*Math.PI)
         this.ctx.lineWidth = 3
         this.ctx.strokeStyle = 'rgb(167, 191, 183, '+this.selectOpacity+')'
         this.ctx.stroke()
+        if(this.levels.length == 0 && this.selectOpacity == 0){
+
+        }
     }
     drawKey(keyholes){
         for (let i = 0; i < 2; i++){
@@ -98,16 +99,7 @@ class Select{
     changeFocus(to, t){
         this.focus == to ? null : (this.focus = Math.floor((1-t)*this.focus+t*to), requestAnimationFrame(this.changeFocus.bind(this, to, t)))
     }
-    changeKeyOpacity(to, t){
-        this.keyOpacity.toFixed(2) == to.toFixed(2) ?  this.keyOpacity = to : ((this.keyOpacity = (1-t)*this.keyOpacity+t*to), requestAnimationFrame(this.changeKeyOpacity.bind(this, to, t)))
-    }
-    changeSelectOpacity(to, t){
-        this.selectOpacity.toFixed(2) == to.toFixed(2) ?  null : ((this.selectOpacity = (1-t)*this.selectOpacity+t*to), requestAnimationFrame(this.changeSelectOpacity.bind(this, to, t)))
-    }
-    animate(){
-        this.changeKeyOpacity(0,0.3)
-        this.changeFocus(to,0.3)
-        this.setRandomPosition()
-        this.changeKeyOpacity(1,0.3)
+    lerp(from, to, t){
+        this[from].toFixed(2) == to.toFixed(2) ? this[from] = to : (this[from] = (1-t)*this[from]+t*to, requestAnimationFrame(this.lerp.bind(this, from, to, t)))
     }
 }

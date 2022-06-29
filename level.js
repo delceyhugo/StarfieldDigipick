@@ -13,7 +13,7 @@ class Level{
         this.keyhole = new Array()
         this.#createCells()
         this.#removeCell(remove)
-        setTimeout(() => (this.active ? this.changeCellOpacity(1) : this.changeCellOpacity(0.5)), 1000)
+        setTimeout(() => (this.active ? this.changeCellOpacity(1) : this.changeCellOpacity(0.5)), 2200)
     }
     #createCells(){
         for (let i = 0; i < 32; i++) {
@@ -52,18 +52,19 @@ class Level{
             if(select.levels.length !== 0){
                 select.level = select.levels[0]
                 select.keyhole = select.levels[0].keyhole
-                select.changeKeyOpacity(0,0.5)
+                select.lerp('keyOpacity', 0, 0.5)
                 setTimeout(() => select.changeFocus(select.levels[0].position + 50, 0.3), 500)
                 setTimeout(() => select.setRandomPosition(), 500)
-                setTimeout(() => select.changeKeyOpacity(1,0.5), 1200)
+                setTimeout(() => select.lerp('keyOpacity', 1,0.5), 1200)
                 setTimeout(() => select.levels[0].changeCellOpacity(1), 800)
                 
             }else{
-                location.reload()
+                select.lerp('selectOpacity', 0,0.5)
+                select.lerp('keyOpacity', 0,0.5)
             }
             
         }else{
-            select.changeKeyOpacity(0,0.5)
+            select.lerp('keyOpacity', 0,0.5)
             setTimeout(() => {
                 for (let i = select.keyhole.length-1; i >= 0; i--) {
                     select.keyhole[i].active == true ? select.keyhole.splice(i,1) : null
@@ -71,7 +72,7 @@ class Level{
                 select.selectPosition[1].from = select.selectPosition[0].from + (select.keyhole[1].from - select.keyhole[0].from)
                 select.selectPosition[1].to = select.selectPosition[0].to + (select.keyhole[1].to - select.keyhole[0].to)
             }, 200)
-            setTimeout(() => select.changeKeyOpacity(1,0.5), 500)
+            setTimeout(() => select.lerp('keyOpacity',1,0.5), 500)
         }
     }
 }
