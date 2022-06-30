@@ -15,9 +15,9 @@ class Select{
     }
     initialized(){
         this.setRandomPosition()
-        setTimeout(() => this.changeFocus(220, 0.2), 1300)
-        setTimeout(() => this.lerp('selectOpacity', 1, 0.2), 1300)
-        setTimeout(() => this.lerp('keyOpacity', 1, 0.3), 1800)
+        setTimeout(() => this.changeFocus(220, 0.2), 500)
+        setTimeout(() => this.lerp('selectOpacity', 1, 0.2), 500)
+        setTimeout(() => this.lerp('keyOpacity', 1, 0.3), 1000)
     }
     drawSelect(){
         this.levels.length > 0 ? this.levels[0].active = true : null

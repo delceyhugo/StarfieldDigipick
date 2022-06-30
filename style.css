@@ -16,3 +16,19 @@ body{
     border-radius: 50%;
     background-image: radial-gradient(farthest-corner at 200px 150px, #19202b, #09090B 50%);
 }
+#reload{
+    cursor: pointer;
+    padding: 10px;
+}
+.off{
+    display: none !important;
+}
+
+#wrapper{
+    width: 500px;
+    height: 500px;
+    position: absolute;
+    display: grid;
+    place-items: center;
+}
+

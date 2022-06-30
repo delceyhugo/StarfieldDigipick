@@ -13,7 +13,7 @@ class Level{
         this.keyhole = new Array()
         this.#createCells()
         this.#removeCell(remove)
-        setTimeout(() => (this.active ? this.changeCellOpacity(1) : this.changeCellOpacity(0.5)), 2200)
+        setTimeout(() => (this.active ? this.changeCellOpacity(1) : this.changeCellOpacity(0.5)), 1200)
     }
     #createCells(){
         for (let i = 0; i < 32; i++) {
@@ -61,6 +61,8 @@ class Level{
             }else{
                 select.lerp('selectOpacity', 0,0.5)
                 select.lerp('keyOpacity', 0,0.5)
+                loop = false
+                initialLoop = true
             }
             
         }else{
