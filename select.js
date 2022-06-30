@@ -67,10 +67,10 @@ class Select{
                     break;
             }
         }else{
-            control < 0 ? this.selectPosition[0].from += this.a * (Math.abs(control/100)) : this.selectPosition[0].from -= this.a * (Math.abs(control/100))
-            control < 0 ? this.selectPosition[0].to += this.a * (Math.abs(control/100)) : this.selectPosition[0].to -= this.a * (Math.abs(control/100))
-            control < 0 ? this.selectPosition[1].from += this.a * (Math.abs(control/100)) : this.selectPosition[1].from -= this.a * (Math.abs(control/100))
-            control < 0 ? this.selectPosition[1].to += this.a * (Math.abs(control/100)) : this.selectPosition[1].to -= this.a * (Math.abs(control/100))
+            control < 0 ? this.selectPosition[0].from -= this.a * control : this.selectPosition[0].from -= this.a * control
+            control < 0 ? this.selectPosition[0].to -= this.a * control : this.selectPosition[0].to -= this.a * control
+            control < 0 ? this.selectPosition[1].from -= this.a * control : this.selectPosition[1].from -= this.a * control
+            control < 0 ? this.selectPosition[1].to -= this.a * control : this.selectPosition[1].to -= this.a * control
         }
     }
     try(){

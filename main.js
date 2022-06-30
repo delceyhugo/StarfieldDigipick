@@ -22,7 +22,7 @@ this.onload = () =>{
         select.moveSelector(event.key)
     })
     document.addEventListener('wheel', (event) => {
-        select.moveSelector(event.deltaY)
+        select.moveSelector((event.deltaY/100).toFixed(0))
     })
     document.addEventListener('click', () => {
         select.try()
